@@ -40,9 +40,8 @@ public class MovementController : MonoBehaviour
 
    private void FixedUpdate()
    {
-
       Vector2 position = Rb.position;
-      Vector2 translation = Direction * (Speed * GhostSpeed * Time.fixedTime);
+      Vector2 translation = Direction * (Speed * GhostSpeed * Time.fixedDeltaTime);
       Rb.MovePosition(position + translation);
    }
 

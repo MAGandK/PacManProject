@@ -1,17 +1,40 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+   
     public Ghost[] GhostObject;
     public Pacman PacmanObject;
     public Transform PelletsTransform;
+    [SerializeField] private TMP_Text _score;
+    [SerializeField] private TMP_Text _lives;
+    [SerializeField] private TMP_Text _gameOverText;
+
+    private int _ghostMultiplayer = 1;
     public int Score { get; private set; }
     public int Lives { get; private set; }
     public float DelayTime = 2f;
+
+    private void Awake()
+    {
+        if (Instance !=null)
+        {
+           DestroyImmediate(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
 
     private void Start()
     {
@@ -35,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void PacmanEaten()
     {
-        PacmanObject.gameObject.SetActive(false);
+       // PacmanObject.DeathSequence();
         SetLives(Lives - 1);
 
         if (Lives > 0)
@@ -50,11 +73,16 @@ public class GameManager : MonoBehaviour
     
     public void GhostEaten(Ghost ghost)
     {
-        SetScore(Score + ghost.ScorePoint);
+        if (ghost != null)
+        {
+            SetScore(Score + ghost.ScorePoint);
+        }
     }
     
     private void GameOver()
     {
+        _gameOverText.enabled = true;
+        
         for (int i = 0; i < GhostObject.Length; i++)
         {
             GhostObject[i].gameObject.SetActive(false); 
@@ -64,15 +92,23 @@ public class GameManager : MonoBehaviour
     }
     private void ResetStart()
     {
+        Debug.Log("вызов ResetStart ");
+
         for (int i = 0; i < GhostObject.Length; i++)
         {
             GhostObject[i].gameObject.SetActive(true); 
         }
-        
-        PacmanObject.gameObject.SetActive(true);
+
+        if (!PacmanObject.gameObject.activeSelf)
+        {
+            Debug.Log("Pacman не активе активация");
+            PacmanObject.gameObject.SetActive(true);
+        }
     }
     private void NewRound()
     {
+        _gameOverText.enabled = false;
+        
         foreach (Transform pellet in PelletsTransform)
         {
             pellet.gameObject.SetActive(true);
@@ -88,5 +124,46 @@ public class GameManager : MonoBehaviour
     private void SetLives(int lives)
     {
         Lives = lives;
+    }
+
+    public void PelletsEaten(Pellets pellets)
+    {
+        pellets.gameObject.SetActive(false);
+        SetScore(Score + pellets.Points);
+
+        if (!HasRamainingPellets())
+        {
+            PacmanObject.gameObject.SetActive(false);
+            Invoke(nameof(NewRound),3f);
+        }
+    }
+
+    public void PowerPelletsEaten(PowerPellets pellets)
+    {
+        for (int i = 0; i < GhostObject.Length; i++)
+        {
+            GhostObject[i].Frightened.Enable(pellets.duration);
+        }
+        PelletsEaten(pellets);
+        CancelInvoke(nameof(ResetGhost));
+        Invoke(nameof(ResetGhost), pellets.duration);
+    }
+
+    private bool HasRamainingPellets()
+    {
+        foreach (Transform pellet in PelletsTransform)
+        {
+            if (pellet.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void ResetGhost()
+    {
+        _ghostMultiplayer = 1;
     }
 }

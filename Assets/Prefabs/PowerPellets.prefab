@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6156194527528431193}
   - component: {fileID: 2501454684514898990}
   - component: {fileID: 7561231124023866119}
+  - component: {fileID: 5022021822807286187}
+  - component: {fileID: 6850637183795383885}
   m_Layer: 8
   m_Name: PowerPellets
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.5, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,3 +122,32 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.57
+--- !u!114 &5022021822807286187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417749800500378732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc52863c4d67e4d1cb02751d4362f010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprites: []
+  AnimTime: 0.25
+  Loop: 1
+--- !u!114 &6850637183795383885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417749800500378732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43bbbae30c18f4c79aed8bf6972c53fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Points: 10
+  duration: 8
