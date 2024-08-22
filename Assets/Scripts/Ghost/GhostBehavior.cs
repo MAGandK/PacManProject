@@ -4,6 +4,7 @@ using UnityEngine;
 public class GhostBehavior : MonoBehaviour
 {
     public Ghost Ghost { get; private set; }
+    
     public float Duration;
 
     private void Awake()

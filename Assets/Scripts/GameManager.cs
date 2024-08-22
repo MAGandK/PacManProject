@@ -58,8 +58,9 @@ public class GameManager : MonoBehaviour
 
     public void PacmanEaten()
     {
-       // PacmanObject.DeathSequence();
-        SetLives(Lives - 1);
+       PacmanObject.DeathSequence();
+        
+       SetLives(Lives - 1);
 
         if (Lives > 0)
         {
@@ -72,11 +73,8 @@ public class GameManager : MonoBehaviour
     }
     
     public void GhostEaten(Ghost ghost)
-    {
-        if (ghost != null)
-        {
-            SetScore(Score + ghost.ScorePoint);
-        }
+    { 
+        SetScore(Score + ghost.ScorePoint);
     }
     
     private void GameOver()
@@ -92,8 +90,6 @@ public class GameManager : MonoBehaviour
     }
     private void ResetStart()
     {
-        Debug.Log("вызов ResetStart ");
-
         for (int i = 0; i < GhostObject.Length; i++)
         {
             GhostObject[i].gameObject.SetActive(true); 
@@ -101,7 +97,6 @@ public class GameManager : MonoBehaviour
 
         if (!PacmanObject.gameObject.activeSelf)
         {
-            Debug.Log("Pacman не активе активация");
             PacmanObject.gameObject.SetActive(true);
         }
     }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Ghost : MonoBehaviour
@@ -11,16 +10,11 @@ public class Ghost : MonoBehaviour
     
     public GhostBehavior InitialBehavior;
     public Transform Target;
-    
     public int ScorePoint = 200;
 
     private void Awake()
     {
         MovementController = GetComponent<MovementController>();
-        if (MovementController == null)
-        {
-            Debug.LogError("MovementController is not assigned.");
-        }
         Home = GetComponent<GhostHome>();
         Frightened = GetComponent<GhostFrightened>();
         Chase = GetComponent<GhostChase>();
