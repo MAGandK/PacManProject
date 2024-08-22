@@ -26,13 +26,13 @@ public class AnimatedSprite : MonoBehaviour
       }
 
       AnimFrame++;
-      
+   
       if (AnimFrame >= Sprites.Length && Loop)
       {
          AnimFrame = 0;
       }
 
-      if (AnimFrame >= 0 && AnimFrame < Sprites.Length )
+      if (AnimFrame >= 0 && AnimFrame < Sprites.Length)
       {
          this.SpriteRenderer.sprite = Sprites[AnimFrame];
       }

@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 8861617827448991835}
   - component: {fileID: 7986817084018188085}
   - component: {fileID: 5073587985288511130}
-  - component: {fileID: 7439910295887585371}
+  - component: {fileID: 765778254760745386}
   - component: {fileID: 7298925948851959591}
-  - component: {fileID: 4531260116017090286}
-  - component: {fileID: 5914235361372113491}
-  - component: {fileID: 4955525964211325331}
+  - component: {fileID: 3868572377063069707}
+  - component: {fileID: 2502164603368107557}
+  - component: {fileID: 7771659716915088870}
   m_Layer: 7
   m_Name: GhostBase
   m_TagString: Untagged
@@ -123,7 +123,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &7439910295887585371
+--- !u!114 &765778254760745386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,10 +132,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 11689058777390302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b108c0ba63362438cbfebb8d7e9758f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 718957ea5708b4cecb208682347aea07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementController: {fileID: 0}
   InitialBehavior: {fileID: 0}
   Target: {fileID: 0}
   ScorePoint: 200
@@ -154,7 +153,7 @@ MonoBehaviour:
   Duration: 0
   Inside: {fileID: 0}
   Outside: {fileID: 0}
---- !u!114 &4531260116017090286
+--- !u!114 &3868572377063069707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,11 +162,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 11689058777390302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff1e8502114d84f4686d2120437cb837, type: 3}
+  m_Script: {fileID: 11500000, guid: 77c9cc0831be2440d906768692ff2b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 0
---- !u!114 &5914235361372113491
+--- !u!114 &2502164603368107557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,11 +175,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 11689058777390302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69e90594be1241b485c90ebf8b46110, type: 3}
+  m_Script: {fileID: 11500000, guid: cc2be6ed2fba146e5beb5c3dea18118c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 0
---- !u!114 &4955525964211325331
+--- !u!114 &7771659716915088870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +188,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 11689058777390302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb353d834dc6a4cbba58cd926ad14cdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 582409339df35479a8bac6982d4066b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: 0
@@ -207,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992515838864650084}
   - component: {fileID: 2019598581050120408}
-  - component: {fileID: 2440675929250752579}
+  - component: {fileID: 5509128065966717860}
   m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
@@ -282,7 +281,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2440675929250752579
+--- !u!114 &5509128065966717860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,7 +290,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 160941723926104607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e27667d2c4554cab9e7ba294f9f337e, type: 3}
+  m_Script: {fileID: 11500000, guid: 11334486813ee461cbeefb3e22ff94cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}

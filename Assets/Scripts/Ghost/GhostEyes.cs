@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class GhostEyes : MonoBehaviour
@@ -16,7 +13,7 @@ public class GhostEyes : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _movementController = GetComponent<MovementController>();
+        _movementController =GetComponentInParent<MovementController>();
     }
 
     private void Update()
