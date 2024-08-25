@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: Pellets
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: f3ad6a179f966804cad0514a2acbf0b0, type: 3}
+  m_DefaultSprite: {fileID: 0}
   m_DefaultGameObject: {fileID: 1361329482528741532, guid: 0a9ff665640f24ba79e18c1eca8650b8, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []

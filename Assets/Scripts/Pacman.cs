@@ -1,17 +1,19 @@
+
 using UnityEngine;
 
 public class Pacman : MonoBehaviour
 {
    [SerializeField] private AnimatedSprite _deathSequence;
+   
    private SpriteRenderer _spriteRender;
    private CircleCollider2D _circleCollider2D;
-   private MovementController _movementController;
+   private PacmanMovement _movementController;
 
    private void Awake()
    {
       _spriteRender = GetComponent<SpriteRenderer>();
       _circleCollider2D = GetComponent<CircleCollider2D>();
-      _movementController = GetComponent<MovementController>();
+      _movementController = GetComponent<PacmanMovement>();
    }
 
    private void Update()
@@ -43,8 +45,9 @@ public class Pacman : MonoBehaviour
       _spriteRender.enabled = true;
       _circleCollider2D.enabled = true;
       _deathSequence.enabled = false;
-      _movementController.ResetState();
+      _movementController.ResetStart();
       gameObject.SetActive(true);
+      Debug.Log("ResetState PACMANE");
    }
    public void DeathSequence()
    {
@@ -54,5 +57,6 @@ public class Pacman : MonoBehaviour
       _movementController.enabled = false; 
       _deathSequence.enabled = true;
       _deathSequence.Restart();
+      Debug.Log("Dead");
    }
 }

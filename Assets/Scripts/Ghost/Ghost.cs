@@ -62,6 +62,7 @@ public class Ghost : MonoBehaviour
             else
             {
                 GameManager.Instance.PacmanEaten();
+                ResetState();
             }
         }
     }

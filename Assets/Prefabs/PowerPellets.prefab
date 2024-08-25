@@ -134,8 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc52863c4d67e4d1cb02751d4362f010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprites:
-  - {fileID: 21300000, guid: 7f92fd0a6259c0748a3798477124414b, type: 3}
+  Sprites: []
   AnimTime: 0.25
   Loop: 1
 --- !u!114 &700687323761215038

@@ -55,13 +55,13 @@ public class GhostFrightened : GhostBehavior
    private void OnEnable()
    {
       Blue.GetComponent<AnimatedSprite>().Restart();
-      Ghost.MovementController.GhostSpeed = 0.5f;
+      Ghost.MovementController.SpeedObject = 0.5f;
       _isEaten = false;
    }
 
    private void OnDisable()
    {
-      Ghost.MovementController.GhostSpeed = 1f;
+      Ghost.MovementController.SpeedObject = 1f;
       _isEaten = false;
    }
 

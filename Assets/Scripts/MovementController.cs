@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class MovementController : MonoBehaviour
 {
-   public float Speed;
-   public float GhostSpeed;
+   public float Speed; 
+   public float SpeedObject;
    public Vector2 InitDirection;
    public LayerMask LayerMask;
 
@@ -21,30 +23,30 @@ public class MovementController : MonoBehaviour
    {
       Rb = GetComponent<Rigidbody2D>();
       StartingPosition = transform.position;
+      InitDirection = Vector2.zero;
    }
 
    private void Start()
    {
       ResetState();
    }
+   private void FixedUpdate()
+   {
+      Vector2 position = Rb.position;
+      Vector2 translation = Direction * (Speed * SpeedObject * Time.fixedDeltaTime);
+      
+      Rb.MovePosition(position + translation);
+   }
 
    public void ResetState()
    {
-      Speed = 1;
+      SpeedObject = 1;
       Direction = InitDirection;
-      NextDirection = Vector2.zero;
       transform.position = StartingPosition;
       Rb.isKinematic = false;
       enabled = true;
    }
 
-   private void FixedUpdate()
-   {
-
-      Vector2 position = Rb.position;
-      Vector2 translation = Direction * (Speed * GhostSpeed * Time.fixedDeltaTime);
-      Rb.MovePosition(position + translation);
-   }
 
    public void SetDirection(Vector2 direction, bool forced = false)
    {
@@ -61,7 +63,7 @@ public class MovementController : MonoBehaviour
 
    public bool Occuped(Vector2 direction)
    {
-      RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * _size, _angle, direction, _distance);
-      return hit.collider != null;
+      RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * _size, _angle, direction, _distance, LayerMask);
+      return hit.collider;
    }
 }
