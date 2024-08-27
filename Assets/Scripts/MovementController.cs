@@ -23,12 +23,18 @@ public class MovementController : MonoBehaviour
    {
       Rb = GetComponent<Rigidbody2D>();
       StartingPosition = transform.position;
-      InitDirection = Vector2.zero;
    }
 
    private void Start()
    {
       ResetState();
+   }
+   
+   private void Update()
+   {
+      if (NextDirection != Vector2.zero) {
+         SetDirection(NextDirection);
+      }
    }
    private void FixedUpdate()
    {
@@ -42,6 +48,7 @@ public class MovementController : MonoBehaviour
    {
       SpeedObject = 1;
       Direction = InitDirection;
+      NextDirection = Vector2.zero;
       transform.position = StartingPosition;
       Rb.isKinematic = false;
       enabled = true;
@@ -50,9 +57,9 @@ public class MovementController : MonoBehaviour
 
    public void SetDirection(Vector2 direction, bool forced = false)
    {
-      if (forced ||!Occuped(direction))
+      if (forced ||!Occupied(direction))
       {
-         Direction = direction;
+        this.Direction = direction;
          NextDirection = Vector2.zero;
       }
       else
@@ -60,10 +67,9 @@ public class MovementController : MonoBehaviour
          NextDirection = direction;
       }
    }
-
-   public bool Occuped(Vector2 direction)
+   public bool Occupied(Vector2 direction)
    {
       RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * _size, _angle, direction, _distance, LayerMask);
-      return hit.collider;
+      return hit.collider != null;
    }
 }

@@ -8,15 +8,14 @@ public class GhostHome : GhostBehavior
 
    private void OnEnable()
    {
-      StopCoroutine(ExitTransition());
-      Ghost.MovementController.SetDirection(Vector2.up, true);
+      StopAllCoroutines();
    }
 
    private void OnCollisionEnter2D(Collision2D collision)
    {
       if (enabled && collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
       {
-          Ghost.MovementController.SetDirection(-Ghost.MovementController.Direction,true);
+          Ghost.MovementController.SetDirection(-Ghost.MovementController.Direction);
       }
    }
 
@@ -28,7 +27,7 @@ public class GhostHome : GhostBehavior
 
        Vector3 position = transform.position;
 
-       float duration = 1f;
+       float duration = 0.5f;
        float elapsed = 0f;
 
        while (elapsed < duration)
@@ -46,9 +45,9 @@ public class GhostHome : GhostBehavior
            elapsed += Time.deltaTime;
            yield return null;
        }
+       Ghost.MovementController.SetDirection(new Vector2(Random.value < 0.5f ? -1f: 1f, 0f ), true);
        Ghost.MovementController.Rb.isKinematic = false;
        Ghost.MovementController.enabled = true;
-       Ghost.MovementController.SetDirection(new Vector2(Random.value < 0.5f ? -1f: 1f, 0f ), true);
    }
 
    private void OnDisable()
@@ -57,7 +56,5 @@ public class GhostHome : GhostBehavior
        {
            StartCoroutine(ExitTransition());
        }
-       
-       Ghost.Scatter.Enable();
    }
 }

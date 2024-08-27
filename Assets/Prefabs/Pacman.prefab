@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5071119038452115003}
   - component: {fileID: 4262858581623200369}
   - component: {fileID: 1916560005180430653}
+  - component: {fileID: 5921170979783747604}
   - component: {fileID: 7344376935918607095}
-  - component: {fileID: 135235705102460003}
   m_Layer: 6
   m_Name: Pacman
   m_TagString: Untagged
@@ -149,9 +149,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009777069, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8038893
+  m_Radius: 1.6
 --- !u!114 &1916560005180430653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +165,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathSequence: {fileID: 5396309363064310481}
+--- !u!114 &5921170979783747604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023915415574311224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1349e675ef74bf1bfdc0e928e113c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 8
+  SpeedObject: 1
+  InitDirection: {x: 1, y: 0}
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &7344376935918607095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,27 +196,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprites:
-  - {fileID: 21300000, guid: e3b83262a412c74408dba5cbe89f43f5, type: 3}
   - {fileID: 21300000, guid: 1f9604f5749fde646a59a72c9ee1cd3a, type: 3}
   - {fileID: 21300000, guid: f8f2ab5881c3e9949bf4ffe9525a0fb7, type: 3}
   - {fileID: 21300000, guid: 1f9604f5749fde646a59a72c9ee1cd3a, type: 3}
+  - {fileID: 21300000, guid: e3b83262a412c74408dba5cbe89f43f5, type: 3}
   AnimTime: 0.125
   Loop: 1
---- !u!114 &135235705102460003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023915415574311224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ac06b303c144a248d14a8ee3fc2610, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 3
-  PacmanSpeed: 1
-  InitDirection: {x: 1, y: 0}
 --- !u!1 &8803145673127392329
 GameObject:
   m_ObjectHideFlags: 0

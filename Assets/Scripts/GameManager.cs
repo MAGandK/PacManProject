@@ -32,13 +32,9 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start()
-    {
-        if (!isGameStarted)
-        {
-            NewGame();
-            isGameStarted = true;
-        }
-    }
+    { 
+        NewGame();
+    } 
 
     private void Update()
     {
@@ -52,11 +48,60 @@ public class GameManager : MonoBehaviour
     {
         SetScore(0); // Обнулить счет при новой игре
         SetLives(3);
-        _gameOverText.enabled = false;
-
         NewRound();
     }
+    private void NewRound()
+    {
+        _gameOverText.enabled = false;
 
+        foreach (Transform pellet in PelletsTransform) {
+            pellet.gameObject.SetActive(true);
+        }
+
+        ResetStart();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+  
+    
+
+    private void ResetStart()
+    {
+        for (int i = 0; i < GhostObject.Length; i++) {
+            GhostObject[i].ResetState();
+        }
+
+        PacmanObject.ResetState(); // Перезагружаем состояние Pacman
+    }
+
+    private void GameOver()
+    {
+        _gameOverText.enabled = true;
+
+        foreach (var ghost in GhostObject)
+        {
+            ghost.gameObject.SetActive(false);
+        }
+
+        PacmanObject.gameObject.SetActive(false);
+    }
+    private void SetScore(int score)
+    {
+        Score = score;
+        _score.SetText(Score.ToString());
+    }
+
+    private void SetLives(int lives)
+    {
+        Lives = lives;
+        _lives.SetText("x" + Lives.ToString());
+    }
     public void PacmanEaten()
     {
         PacmanObject.DeathSequence();
@@ -72,70 +117,12 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            Instance = null;
-        }
-    }
-
     public void GhostEaten(Ghost ghost)
     {
+        
         SetScore(Score + ghost.ScorePoint);
+
     }
-
-    private void GameOver()
-    {
-        _gameOverText.enabled = true;
-
-        foreach (var ghost in GhostObject)
-        {
-            ghost.gameObject.SetActive(false);
-        }
-
-        PacmanObject.gameObject.SetActive(false);
-    }
-
-    private void ResetStart()
-    {
-        foreach (var ghost in GhostObject)
-        {
-            ghost.gameObject.SetActive(true);
-        }
-
-        PacmanObject.ResetState(); // Перезагружаем состояние Pacman
-    }
-
-    private void NewRound()
-    {
-        if (!HasRemainingPellets())
-        {
-            foreach (Transform pellet in PelletsTransform)
-            {
-                pellet.gameObject.SetActive(true);
-            }
-            Invoke(nameof(ResetStart), 1f); 
-        }
-        else
-        {
-            ResetStart();
-        }
-    }
-
-    private void SetScore(int score)
-    {
-        Score = score;
-        _score.SetText(Score.ToString());
-    }
-
-    private void SetLives(int lives)
-    {
-        Lives = lives;
-        _lives.SetText(Lives.ToString());
-    }
-
     public void PelletsEaten(Pellets pellet)
     {
         pellet.gameObject.SetActive(false);
@@ -156,23 +143,23 @@ public class GameManager : MonoBehaviour
             GhostObject[i].Frightened.Enable(pellets.duration);
         }
         PelletsEaten(pellets);
-        // CancelInvoke(nameof(ResetGhost));
-        // Invoke(nameof(ResetGhost), pellets.duration);
+        CancelInvoke(nameof(ResetGhost));
+        Invoke(nameof(ResetGhost), pellets.duration);
     }
 
     private bool HasRemainingPellets()
     {
-        for (int i = 0; i < PelletsTransform.childCount; i++)
+        foreach (Transform pellet in PelletsTransform)
         {
-            if (PelletsTransform.GetChild(i).gameObject.activeSelf)
-            {
+            if (pellet.gameObject.activeSelf) {
                 return true;
             }
         }
+
         return false;
     }
-    // private void ResetGhost()
-    // {
-    //     _ghostMultiplayer = 1;
-    // }
+    private void ResetGhost()
+    {
+        _ghostMultiplayer = 1;
+    }
 }

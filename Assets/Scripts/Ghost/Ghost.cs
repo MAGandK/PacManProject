@@ -25,8 +25,8 @@ public class Ghost : MonoBehaviour
     {
         ResetState();
     }
-
-    private void ResetState()
+    
+    public void ResetState()
     {
         gameObject.SetActive(true);
         MovementController.ResetState();
@@ -62,7 +62,6 @@ public class Ghost : MonoBehaviour
             else
             {
                 GameManager.Instance.PacmanEaten();
-                ResetState();
             }
         }
     }

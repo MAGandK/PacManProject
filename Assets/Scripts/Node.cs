@@ -10,6 +10,7 @@ public class Node : MonoBehaviour
    private void Start()
    {
       AvialableDirection.Clear();
+      
       CheckAvialableDirection(Vector2.up);
       CheckAvialableDirection(Vector2.down);
       CheckAvialableDirection(Vector2.left);
