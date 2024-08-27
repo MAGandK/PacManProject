@@ -19,7 +19,7 @@ public class GhostFrightened : GhostBehavior
 
       Invoke(nameof(Flash), duration / 2f);
    }
-
+   
    public override void Disable()
    {
       base.Disable();

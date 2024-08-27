@@ -22,8 +22,8 @@ public class GhostHome : GhostBehavior
    private IEnumerator ExitTransition()
    {
       Ghost.MovementController.SetDirection(Vector2.up,true);
-       Ghost.MovementController.Rb.isKinematic = true;
-       Ghost.MovementController.enabled = false;
+      Ghost.MovementController.Rb.isKinematic = true;
+      Ghost.MovementController.enabled = false;
 
        Vector3 position = transform.position;
 
@@ -45,9 +45,9 @@ public class GhostHome : GhostBehavior
            elapsed += Time.deltaTime;
            yield return null;
        }
-       Ghost.MovementController.SetDirection(new Vector2(Random.value < 0.5f ? -1f: 1f, 0f ), true);
        Ghost.MovementController.Rb.isKinematic = false;
        Ghost.MovementController.enabled = true;
+       Ghost.MovementController.SetDirection(new Vector2(Random.value < 0.5f ? -1f: 1f, 0f ), true);
    }
 
    private void OnDisable()

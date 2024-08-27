@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
-        SetScore(0); // Обнулить счет при новой игре
+        SetScore(0); 
         SetLives(3);
         NewRound();
     }
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
             GhostObject[i].ResetState();
         }
 
-        PacmanObject.ResetState(); // Перезагружаем состояние Pacman
+        PacmanObject.ResetState(); 
     }
 
     private void GameOver()
