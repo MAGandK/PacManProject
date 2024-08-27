@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
+
 public class GhostHome : GhostBehavior
 {
    public Transform Inside;
@@ -15,6 +16,7 @@ public class GhostHome : GhostBehavior
    {
       if (enabled && collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
       {
+          Debug.Log("коллизия с Оbstacle");
           Ghost.MovementController.SetDirection(-Ghost.MovementController.Direction);
       }
    }

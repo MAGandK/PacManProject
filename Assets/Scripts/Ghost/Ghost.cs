@@ -1,5 +1,5 @@
 using UnityEngine;
-[RequireComponent(typeof(MovementController))]
+
 public class Ghost : MonoBehaviour
 {
     public MovementController MovementController { get; private set; }

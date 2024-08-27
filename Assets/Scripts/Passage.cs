@@ -6,7 +6,6 @@ using UnityEngine;
 public class Passage : MonoBehaviour
 {
     public Transform Connection;
-    //проверить Z напрвление
     private void OnTriggerEnter2D(Collider2D other)
     {
         Vector3 position = Connection.position;

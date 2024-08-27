@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public int Lives { get; private set; }
     
     public float DelayTime = 2f;
-    private bool isGameStarted = false;
 
     private void Awake()
     {
@@ -54,7 +53,8 @@ public class GameManager : MonoBehaviour
     {
         _gameOverText.enabled = false;
 
-        foreach (Transform pellet in PelletsTransform) {
+        foreach (Transform pellet in PelletsTransform)
+        {
             pellet.gameObject.SetActive(true);
         }
 

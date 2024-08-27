@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class MovementController : MonoBehaviour
@@ -57,7 +55,7 @@ public class MovementController : MonoBehaviour
 
    public void SetDirection(Vector2 direction, bool forced = false)
    {
-      if (forced ||!Occupied(direction))
+      if (forced || !Occupied(direction))
       {
         this.Direction = direction;
          NextDirection = Vector2.zero;
