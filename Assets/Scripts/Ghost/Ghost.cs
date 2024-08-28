@@ -34,7 +34,7 @@ public class Ghost : MonoBehaviour
         Frightened.Disable();
         Chase.Disable();
         Scatter.Enable();
-
+       
         if (Home != InitialBehavior)
         {
             Home.Disable();

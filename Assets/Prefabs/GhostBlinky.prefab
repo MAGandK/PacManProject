@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 7
   SpeedObject: 1
-  InitDirection: {x: -1, y: 0}
+  InitDirection: {x: 0, y: 0}
   LayerMask:
     serializedVersion: 2
     m_Bits: 512

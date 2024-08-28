@@ -53,31 +53,22 @@ public class GameManager : MonoBehaviour
     {
         _gameOverText.enabled = false;
 
-        foreach (Transform pellet in PelletsTransform)
+        for (int i = 0; i < PelletsTransform.childCount; i++)
         {
-            pellet.gameObject.SetActive(true);
+            PelletsTransform.GetChild(i).gameObject.SetActive(true);
         }
 
         ResetStart();
     }
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            Instance = null;
-        }
-    }
-  
     
-
     private void ResetStart()
     {
-        for (int i = 0; i < GhostObject.Length; i++) {
-            GhostObject[i].ResetState();
+        foreach (var ghost in GhostObject)
+        {
+            ghost.gameObject.SetActive(true);
         }
-
-        PacmanObject.ResetState(); 
+            
+        PacmanObject.ResetState();
     }
 
     private void GameOver()
@@ -119,8 +110,9 @@ public class GameManager : MonoBehaviour
     }
     public void GhostEaten(Ghost ghost)
     {
-        
-        SetScore(Score + ghost.ScorePoint);
+        int point = ghost.ScorePoint * _ghostMultiplayer;
+        SetScore(Score + point);
+        _ghostMultiplayer++;
 
     }
     public void PelletsEaten(Pellets pellet)
@@ -161,5 +153,13 @@ public class GameManager : MonoBehaviour
     private void ResetGhost()
     {
         _ghostMultiplayer = 1;
+    }
+    
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 }

@@ -2,11 +2,6 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class GhostScatter : GhostBehavior
 {
-    private void OnDisable()
-    {
-        Ghost.Chase.Enable();
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         Node node = other.GetComponent<Node>();
@@ -27,5 +22,9 @@ public class GhostScatter : GhostBehavior
             
             Ghost.MovementController.SetDirection(node.AvialableDirection[indexDirection]);
         }
+    }
+    private void OnDisable()
+    {
+        Ghost.Chase.Enable();
     }
 }

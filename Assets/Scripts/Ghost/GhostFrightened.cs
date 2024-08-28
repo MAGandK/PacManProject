@@ -27,6 +27,10 @@ public class GhostFrightened : GhostBehavior
       Eyes.enabled = true;
       Blue.enabled = false;
       White.enabled = false;
+      
+      Ghost.MovementController.SpeedObject = 1f;
+      Ghost.MovementController.enabled = true;
+      _isEaten = false;
    }
 
    private void Eaten()
@@ -36,7 +40,7 @@ public class GhostFrightened : GhostBehavior
       Ghost.Home.Enable(Duration);
       
       Body.enabled = false;
-      Eyes.enabled = true;
+      Eyes.enabled = false;// было true
       Blue.enabled = false;
       White.enabled = false;
    }

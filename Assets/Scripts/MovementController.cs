@@ -30,7 +30,8 @@ public class MovementController : MonoBehaviour
    
    private void Update()
    {
-      if (NextDirection != Vector2.zero) {
+      if (NextDirection != Vector2.zero) 
+      {
          SetDirection(NextDirection);
       }
    }
