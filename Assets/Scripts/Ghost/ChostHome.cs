@@ -16,16 +16,18 @@ public class GhostHome : GhostBehavior
    {
       if (enabled && collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
       {
-          Debug.Log("коллизия с Оbstacle");
           Ghost.MovementController.SetDirection(-Ghost.MovementController.Direction);
       }
    }
 
    private IEnumerator ExitTransition()
    {
-      Ghost.MovementController.SetDirection(Vector2.up,true);
-      Ghost.MovementController.Rb.isKinematic = true;
-      Ghost.MovementController.enabled = false;
+       float randomDelay = Random.Range(0f, 1f); 
+       yield return new WaitForSeconds(randomDelay); 
+       
+       Ghost.MovementController.SetDirection(Vector2.up,true);
+       Ghost.MovementController.Rb.isKinematic = true;
+       Ghost.MovementController.enabled = false;
 
        Vector3 position = transform.position;
 
@@ -47,7 +49,7 @@ public class GhostHome : GhostBehavior
            elapsed += Time.deltaTime;
            yield return null;
        }
-       Ghost.MovementController.SetDirection(new Vector2(Random.value < 0.5f ? -1f: 1f, 0f ), true);
+       Ghost.MovementController.SetDirection(new Vector2(Random.value < 0.5f ? -1f : 1f, 0f ), true);
        Ghost.MovementController.Rb.isKinematic = false;
        Ghost.MovementController.enabled = true;
    }

@@ -1094,6 +1094,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4441496895001607653, guid: 53b6c738687d547afb25dc2e3a36b193, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4595029199658263586, guid: 53b6c738687d547afb25dc2e3a36b193, type: 3}
       propertyPath: m_Name
       value: GhostInky
@@ -1106,6 +1110,10 @@ PrefabInstance:
       propertyPath: Outside
       value: 
       objectReference: {fileID: 8668290968313042663}
+    - target: {fileID: 7110686308669812663, guid: 53b6c738687d547afb25dc2e3a36b193, type: 3}
+      propertyPath: Duration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7213961181456254730, guid: 53b6c738687d547afb25dc2e3a36b193, type: 3}
       propertyPath: Target
       value: 
@@ -3939,6 +3947,14 @@ PrefabInstance:
       propertyPath: Outside
       value: 
       objectReference: {fileID: 8668290968313042663}
+    - target: {fileID: 22683216334912851, guid: 026531ff9e1164a25b8995a159c92697, type: 3}
+      propertyPath: Duration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 518792044779778904, guid: 026531ff9e1164a25b8995a159c92697, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4028102630596225239, guid: 026531ff9e1164a25b8995a159c92697, type: 3}
       propertyPath: Target
       value: 
@@ -9867,6 +9883,10 @@ PrefabInstance:
       propertyPath: Outside
       value: 
       objectReference: {fileID: 8668290968313042663}
+    - target: {fileID: 2598925982603942012, guid: 40b97009928b04b0c9aea8eea66eb3f3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6840017251099439165, guid: 40b97009928b04b0c9aea8eea66eb3f3, type: 3}
       propertyPath: m_Name
       value: GhostBlinky

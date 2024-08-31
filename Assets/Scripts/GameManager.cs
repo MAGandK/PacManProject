@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            SetLives(0);
             GameOver();
         }
     }
