@@ -22,16 +22,13 @@ public class GhostHome : GhostBehavior
 
    private IEnumerator ExitTransition()
    {
-       float randomDelay = Random.Range(0f, 1f); 
-       yield return new WaitForSeconds(randomDelay); 
-       
        Ghost.MovementController.SetDirection(Vector2.up,true);
        Ghost.MovementController.Rb.isKinematic = true;
        Ghost.MovementController.enabled = false;
 
        Vector3 position = transform.position;
 
-       float duration = 0.5f;
+       float duration = 0.9f;
        float elapsed = 0f;
 
        while (elapsed < duration)

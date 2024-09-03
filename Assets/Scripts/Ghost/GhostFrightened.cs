@@ -27,16 +27,12 @@ public class GhostFrightened : GhostBehavior
       Eyes.enabled = true;
       Blue.enabled = false;
       White.enabled = false;
-      
-      Ghost.MovementController.SpeedObject = 1f;
-      Ghost.MovementController.enabled = true;
-      _isEaten = false;
    }
 
    private void Eaten()
    {
       _isEaten = true;
-      Ghost.SetPosition(Ghost.Home.Inside.position);
+      Ghost.MovementController.ResetState();
       Ghost.Home.Enable(Duration);
       
       Body.enabled = false;
@@ -71,7 +67,7 @@ public class GhostFrightened : GhostBehavior
 
    private void OnTriggerEnter2D(Collider2D other)
    {
-      Node node = GetComponent<Node>();
+      Node node = other.GetComponent<Node>();
 
       if (node != null && enabled)
       {

@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     private int _ghostMultiplayer = 1;
     public int Score { get; private set; }
     public int Lives { get; private set; }
-    
     public float DelayTime = 2f;
 
     private void Awake()
@@ -139,12 +138,12 @@ public class GameManager : MonoBehaviour
         CancelInvoke(nameof(ResetGhost));
         Invoke(nameof(ResetGhost), pellets.duration);
     }
-
     private bool HasRemainingPellets()
     {
-        foreach (Transform pellet in PelletsTransform)
+        for (int i = 0; i < PelletsTransform.childCount; i++)
         {
-            if (pellet.gameObject.activeSelf) {
+            if (PelletsTransform.GetChild(i).gameObject.activeSelf)
+            {
                 return true;
             }
         }

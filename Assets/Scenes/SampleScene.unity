@@ -1118,6 +1118,10 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 2831055621785117508}
+    - target: {fileID: 7297363809599359646, guid: 53b6c738687d547afb25dc2e3a36b193, type: 3}
+      propertyPath: Speed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3954,6 +3958,10 @@ PrefabInstance:
     - target: {fileID: 518792044779778904, guid: 026531ff9e1164a25b8995a159c92697, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555797001092630140, guid: 026531ff9e1164a25b8995a159c92697, type: 3}
+      propertyPath: Speed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4028102630596225239, guid: 026531ff9e1164a25b8995a159c92697, type: 3}
       propertyPath: Target
@@ -9895,6 +9903,10 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 2831055621785117508}
+    - target: {fileID: 8519920336209846750, guid: 40b97009928b04b0c9aea8eea66eb3f3, type: 3}
+      propertyPath: Speed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9065896287076118129, guid: 40b97009928b04b0c9aea8eea66eb3f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.09
@@ -10009,6 +10021,10 @@ PrefabInstance:
     - target: {fileID: 3891373442213472107, guid: da02de85d227541f1adcdccc368ffb9c, type: 3}
       propertyPath: m_Name
       value: Pacman
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714720576821500507, guid: da02de85d227541f1adcdccc368ffb9c, type: 3}
+      propertyPath: Speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10911,7 +10927,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

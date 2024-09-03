@@ -11,7 +11,7 @@ public class Ghost : MonoBehaviour
     public GhostBehavior InitialBehavior;
     public Transform Target;
     public int ScorePoint = 200;
-
+    private bool _isActiv = true;
     private void Awake()
     {
         MovementController = GetComponent<MovementController>();
@@ -20,17 +20,20 @@ public class Ghost : MonoBehaviour
         Chase = GetComponent<GhostChase>();
         Scatter = GetComponent<GhostScatter>();
     }
-
+    private void OnEnable()
+    {
+        if (!_isActiv)
+        {
+            ResetState();
+        }
+    }
     private void Start()
     {
         ResetState();
     }
-    
     public void ResetState()
     {
-        gameObject.SetActive(true);
         MovementController.ResetState();
-        
         Frightened.Disable();
         Chase.Disable();
         Scatter.Enable();
@@ -50,7 +53,6 @@ public class Ghost : MonoBehaviour
         position.z = transform.position.z;
         transform.position = position;
     }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("PacMan"))
@@ -62,7 +64,12 @@ public class Ghost : MonoBehaviour
             else
             {
                 GameManager.Instance.PacmanEaten();
+                ResetState();
             }
         }
+    }
+    private void OnDisable()
+    {
+        _isActiv = false;
     }
 }

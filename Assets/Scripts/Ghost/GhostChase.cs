@@ -28,7 +28,6 @@ public class GhostChase : GhostBehavior
             Ghost.MovementController.SetDirection(direction);
         }
     }
-
     private void OnDisable()
     {
         Ghost.Scatter.Enable();
