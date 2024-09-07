@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Zenject;
 public class Ghost : MonoBehaviour
 {
     public MovementController MovementController { get; private set; }
@@ -12,13 +12,15 @@ public class Ghost : MonoBehaviour
     public Transform Target;
     public int ScorePoint = 200;
     private bool _isActiv = true;
-    private void Awake()
+    
+    [Inject]
+    public void Construct(MovementController movementController, GhostHome home, GhostFrightened frightened, GhostChase chase, GhostScatter scatter)
     {
-        MovementController = GetComponent<MovementController>();
-        Home = GetComponent<GhostHome>();
-        Frightened = GetComponent<GhostFrightened>();
-        Chase = GetComponent<GhostChase>();
-        Scatter = GetComponent<GhostScatter>();
+        MovementController = movementController;
+        Home = home;
+        Frightened = frightened;
+        Chase = chase;
+        Scatter = scatter;
     }
     private void OnEnable()
     {
@@ -59,7 +61,8 @@ public class Ghost : MonoBehaviour
         {
             if (Frightened.enabled)
             {
-                GameManager.Instance.GhostEaten(this);
+               GameManager.Instance.GhostEaten(this);
+               
             }
             else
             {

@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using Zenject;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -16,7 +18,7 @@ public class GameManager : MonoBehaviour
     public int Score { get; private set; }
     public int Lives { get; private set; }
     public float DelayTime = 2f;
-
+    
     private void Awake()
     {
         if (Instance != null)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class GhostEyes : MonoBehaviour
@@ -10,11 +11,15 @@ public class GhostEyes : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private MovementController _movementController;
-
+    
+    [Inject]
+    public void Construct(MovementController movement)
+    {
+        _movementController = movement;
+    }
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _movementController =GetComponentInParent<MovementController>();
     }
 
     private void Update()

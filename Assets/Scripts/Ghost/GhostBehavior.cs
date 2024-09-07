@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(Ghost))]
 public class GhostBehavior : MonoBehaviour
@@ -7,10 +8,15 @@ public class GhostBehavior : MonoBehaviour
     
     public float Duration;
 
-    private void Awake()
+    [Inject]
+    private void Construct(Ghost ghost)
     {
-        Ghost = GetComponent<Ghost>();
+        Ghost = ghost;
     }
+    // private void Awake()
+    // {
+    //     Ghost = GetComponent<Ghost>();
+    // }
 
     public void Enable()
     {
